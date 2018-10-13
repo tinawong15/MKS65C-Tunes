@@ -15,7 +15,7 @@
 - remove_node is giving segmentation errors
 
 ### Changelog:
-- raunakC and tinaW 2018-10-12 20:00 - 22:37
+- raunakC and tinaW 2018-10-12 20:00 - 2018-10-13 00:20
   - Collaborated on makefile, list.h, library.h, main.c
   - Took 15 million years on insert_order
   - Collaborated on all functions in list.c
