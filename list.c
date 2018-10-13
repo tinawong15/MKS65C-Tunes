@@ -117,40 +117,36 @@ struct song_node * random_element(struct song_node *node_pointer) {
   return current_pointer;
 }
 
-// // remove a single specified node from the list
-// struct song_node * remove_node(struct song_node *node_pointer, char * song, char * artist){
-//   struct song_node *current_pointer = node_pointer;
-//   struct song_node *previous_pointer; //points to the node previous to the curr ptr
-//   strcpy(previous_pointer -> song, current_pointer -> song);
-//   previous_pointer = current_pointer -> next;
-//   while (current_pointer){
-//     //printf("Current Pointer: %s and Previous Pointer: %s\n", current_pointer -> song, previous_pointer -> song);
-//     // search for a matching node
-//     if(strcmp(current_pointer -> song, song) == 0 && strcmp(current_pointer -> artist, artist) == 0) {
-//       //printf("Current Pointer: %s and Previous Pointer: %s\n", current_pointer -> song, previous_pointer -> song);
-//       // if the first node is being removed
-//       if (previous_pointer == current_pointer -> next){
-//         free(current_pointer);
-//         return previous_pointer;
-//       }
-//       // if the last node is being removed
-//       if (!current_pointer -> next){
-//         previous_pointer -> next = NULL;
-//         free(current_pointer);
-//         return node_pointer;
-//       }
-//       //general case
-//       previous_pointer -> next = current_pointer -> next;
-//       free(current_pointer);
-//       //printf("prev ptr: %s\n", node_pointer -> song);
-//       return node_pointer;
-//     }
-//     previous_pointer = current_pointer;
-//     current_pointer = current_pointer -> next;
-//   }
-//   //invalid pointer
-//   return NULL;
-// }
+// remove a single specified node from the list
+struct song_node * remove_node(struct song_node *node_pointer, char * song, char * artist){
+  struct song_node *current_pointer = node_pointer;
+  struct song_node *previous_pointer; //points to the node previous to the curr ptr
+  previous_pointer = NULL;
+  while (current_pointer){
+    // search for a matching node
+    if(strcmp(current_pointer -> song, song) == 0 && strcmp(current_pointer -> artist, artist) == 0) {
+      // if the first node is being removed
+      if (previous_pointer == NULL) {
+        free(current_pointer);
+        return node_pointer -> next;
+      }
+      // if the last node is being removed
+      if (!current_pointer -> next){
+        previous_pointer -> next = NULL;
+        free(current_pointer);
+        return node_pointer;
+      }
+      // general case
+      previous_pointer -> next = current_pointer -> next;
+      free(current_pointer);
+      return node_pointer;
+    }
+    printf("%s\n", previous_pointer -> song);
+    previous_pointer = current_pointer;
+    current_pointer = current_pointer -> next;
+  }
+  return NULL;
+}
 
 // print the entire list
 void print_list(struct song_node *node_pointer) {

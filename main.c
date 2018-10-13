@@ -3,7 +3,7 @@
 
 int main(){
   //set up sample notes for testing
-  srand( time(NULL) );
+  srand( time(NULL) ); //seeding random number generator once in the program
   struct song_node *start_pointer = NULL; //1 * size of node
 
   printf("Printing Song List After Insert Fronts:\n");
@@ -44,7 +44,7 @@ int main(){
   printf("Finding Woolf: %s\n", find_song(start_pointer, "Woolf") -> song); // end case
   printf("Finding Nemo: %s\n", find_song(start_pointer, "Nemo") -> song); // end case
 
-  printf("\nTesting length helper function with the current list: %d\n", length(start_pointer));
+  // printf("\nTesting length helper function with the current list: %d\n", length(start_pointer));
 
   printf("\nTesting random element function:\n");
   int i;
@@ -53,9 +53,12 @@ int main(){
   }
 
   printf("\nTesting remove node function:\n");
-  // start_pointer = remove_node(start_pointer, "Politics", "Aristotle");
-  // printf("Removing Aristotle's Politics...\n"); // beginning case
-  // print_list(start_pointer);
+  start_pointer = remove_node(start_pointer, "Politics", "Aristotle");
+  printf("Removing Aristotle's Politics...\n"); // beginning case
+  print_list(start_pointer);
+  start_pointer = remove_node(start_pointer, "Socialism", "Aristotle");
+  printf("Removing Aristotle's Socialism...\n"); // beginning case
+  print_list(start_pointer);
   start_pointer = remove_node(start_pointer, "Egotism in French Philosophy", "Nietzsche");
   printf("Removing Nietzsche's Egotism in French Philosophy...\n"); // average case
   print_list(start_pointer);
