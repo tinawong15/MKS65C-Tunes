@@ -2,14 +2,14 @@
 ## Tina Wong and Raunak Chowdhury
 
 ### To-Do:
-[X] list.h
-[X] library.h
-[X] makefile
-[X] insert_order in list.c
-[X] remove_node in list.c
-[ ] list.c
-[ ] library.c
-[ ] Build Testing Suite in main.c
+- [X] list.h
+- [X] library.h
+- [X] makefile
+- [X] insert_order in list.c
+- [X] remove_node in list.c
+- [ ] list.c
+- [ ] library.c
+- [ ] Build Testing Suite in main.c
 
 ### Current Bugs:
 - free_list is causing memory leaks according to valgrind
