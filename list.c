@@ -141,7 +141,6 @@ struct song_node * remove_node(struct song_node *node_pointer, char * song, char
       free(current_pointer);
       return node_pointer;
     }
-    printf("%s\n", previous_pointer -> song);
     previous_pointer = current_pointer;
     current_pointer = current_pointer -> next;
   }

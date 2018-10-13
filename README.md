@@ -13,7 +13,6 @@
 
 ### Current Bugs:
 - free_list is causing memory leaks according to valgrind
-- remove_node is giving segmentation errors
 
 ### Changelog:
 - raunakC and tinaW 2018-10-12 20:00 - 2018-10-13 00:20
