@@ -18,8 +18,8 @@
 
 ### Changelog:
 - tinaW 2018-10-14 13:30 - 13:50
- - Finished delete_song
- - Changed test cases
+  - Finished delete_song
+  - Changed test cases
 
 - raunakC 2018-10-14 11:10 - 13:10
   - Fixed search_artist and refactored search_song
