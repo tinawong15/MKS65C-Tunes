@@ -79,7 +79,7 @@ void print_library(struct song_node **library){
   int index;
   for (index = 0; index < 27; index++){
     printf("%c| ", letter);
-    print_list(library[index] -> next); //skip the empty node
+    print_list(library[index]); //skip the empty node
     letter++;
   }
 }

@@ -94,16 +94,6 @@ int main(){
   add_node(library, "Chickamauga", "Bierce");
   add_node(library, "Coup de Grace", "Bierce");
   add_node(library, "The Devil's Dictionary", "Bierce");
-  char letter = 'a';
-  for (i = 0; i < 27; i++){
-    //char draft_name[16] =
-    add_node(library, "Self-Reliance", &letter);
-    add_node(library, "Anarchist Manifesto", &letter);
-    add_node(library, "The Yellow Wallpaper", &letter);
-    add_node(library, "Raunak is spelled Roanoke", &letter);
-    add_node(library, "Tina's secret mixtape", &letter);
-    letter++;
-  }
   printf("Printing library after adding nodes:\n");
   print_library(library);
 
