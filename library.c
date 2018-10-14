@@ -18,31 +18,11 @@ int find_index(char * artist){
 }
 
 // Add song nodes.
-// struct song_node ** add_node(struct song_node **library, char * song, char * artist){
-//   int index = find_index(artist);
-//   // printf("%s\n", library[index] -> song);
-//   // if first node
-//   // printf("index: %d\n", index);
-//   if(strcmp(library[index] -> song, "") == 0){
-//     struct song_node *new_pointer = malloc(sizeof(struct song_node));
-//     strcpy(new_pointer -> song, song);
-//     strcpy(new_pointer -> artist, artist);
-//     new_pointer -> next = NULL;
-//     library[index] = new_pointer;
-//     // printf("%s\n", new_pointer -> song);
-//     // printf("%s\n", library[index] -> song);
-//   }
-//   // let insert_order handle the rest
-//   else {
-//     printf("library[%d]: %s | %s\n", index, library[index] -> artist,library[index] -> song );
-//     library[index] = insert_order(library[index] -> next, song, artist);
-//   }
-//   return library;
-// }
-
-// temp
 struct song_node ** add_node(struct song_node **library, char * song, char * artist){
   int index = find_index(artist);
+  //printf("library[%d]: %s:%s\n", index,library[index] -> artist, library[index] -> song );
+  //printf("New node: %s %s\n", artist, song);
+  print_list(library[index]);
   library[index] = insert_order(library[index], song, artist);
   return library;
 }
@@ -50,28 +30,21 @@ struct song_node ** add_node(struct song_node **library, char * song, char * art
 // Search for a song given song and artist name (return a pointer).
 struct song_node * search_song(struct song_node **library, char * song, char * artist){
   int index = find_index(artist);
-  if(strcmp(song, "") || strcmp(artist, "")) {
-    return NULL;
-  }
   return find_node(library[index], song, artist);
 }
 
-// Search for an artist.
-// struct song_node * search_artist(struct song_node **library, char * artist){
-//   int index = find_index(artist);
-//   if(strcmp(artist, "")) {
-//     return NULL;
-//   }
-//   return find_song(library[index], artist);
-// }
-
+//Search for an artist.
+struct song_node * search_artist(struct song_node **library, char * artist){
+  int index = find_index(artist);
+  return find_song(library[index], artist);
+}
 
 // Print out the entire library.
 void print_library(struct song_node **library){
   char letter = 'a';
   int index;
   for (index = 0; index < 27; index++){
-    printf("%c: ", letter);
+    printf("%c| ", letter);
     print_list(library[index]);
     letter++;
   }
@@ -99,9 +72,6 @@ void print_letter_list(struct song_node **library, char letter){
 }
 
 
-//
-//
-//
 // // Shuffle - print out a series of randomly chosen songs.
 // void shuffle_print(struct song_node **library){
 //

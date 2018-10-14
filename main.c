@@ -7,9 +7,12 @@ int main(){
   struct song_node *start_pointer = NULL; //1 * size of node
   struct song_node * library[27];
   int index;
+  char letter = 'a';
   for (index = 0; index < 27; index++){
     library[index] = malloc(sizeof(struct song_node));
-    library[index] -> next = 0;
+    library[index] -> next = NULL;
+    // library[index] -> song[0] = letter;
+    // letter++;
   }
 
   printf("============= LINKED LIST TESTS =============\n");
@@ -90,10 +93,10 @@ int main(){
   add_node(library, "Republic", "Plato");
   add_node(library, "The Sound and the Fury", "Faulkner");
   add_node(library, "American Pastoral", "Roth");
-  // add_node(library, "Chickamauga", "Bierce");
-  // add_node(library, "Coup de Grace", "Bierce");
-  // add_node(library, "The Devil's Dictionary", "Bierce");
-  // add_node(library, "AA", "Bierce");
+  add_node(library, "Chickamauga", "Bierce");
+  add_node(library, "Coup de Grace", "Bierce");
+  add_node(library, "The Devil's Dictionary", "Bierce");
+  add_node(library, "AA", "Bierce");
   printf("Printing library after adding nodes:\n");
   print_library(library);
 
@@ -116,9 +119,9 @@ int main(){
   printf("Attempting to find \"\" (title returned): %s\n", search_song(library, "", "") -> song); // invalid
 
   printf("Searching for artists: \n");
-  // printf("Attempting to find Solzhenitsyn (title returned): %s", search_artist(library, "Solzhenitsyn") -> song); // valid
-  // printf("Attempting to find K (title returned): %s", search_artist(library, "K") -> song); // invalid
-  // printf("Attempting to find \"\" (title returned): %s", search_artist(library, "") -> song); // invalid
+  printf("Attempting to find Solzhenitsyn (title returned): %s\n", search_artist(library, "Solzhenitsyn") -> song); // valid
+  printf("Attempting to find K (title returned): %s\n", search_artist(library, "K") -> song); // invalid
+  printf("Attempting to find \"\" (title returned): %s\n", search_artist(library, "") -> song); // invalid
 
   return 0;
 }

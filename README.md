@@ -7,17 +7,19 @@
 - [X] makefile
 - [X] insert_order in list.c
 - [X] remove_node in list.c
-- [ ] add_node in library.c
+- [X] add_node in library.c
 - [ ] list.c
 - [ ] library.c
 - [ ] Build Testing Suite in main.c
 
 ### Current Bugs:
 - free_list is causing memory leaks according to valgrind
-- add_node has many issues (a temporary one is currently used to test other fxns)
-- search_artist is giving seg faults
 
 ### Changelog:
+- raunakC 2018-10-14 11:10 - 13:10
+  - Fixed search_artist and refactored search_song
+  - FIXED ADD_NODE (ONLY TOOK AN ADDITIONAL 15 MILLION YEARS)
+
 - tinaW 2018-10-14 09:15 - 10:25
   - Fixed search_song
   - Commented out broken code to push
@@ -26,6 +28,7 @@
 - raunakC and tinaW 2018-10-13 21:30 - 01:30
   - Took 20 million years on add_node
   - Collaborated on library.c
+  - (Raunak fell asleep during the call)
 
 - tinaW 2018-10-13 09:30 - 10:30
   - Fixed remove_node
