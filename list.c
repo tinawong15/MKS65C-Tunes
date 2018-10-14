@@ -126,9 +126,9 @@ int length(struct song_node *node_pointer) {
 struct song_node * random_element(struct song_node *node_pointer) {
   struct song_node *current_pointer = node_pointer;
   int random_index = rand() % length(node_pointer);
-  int num;
-  while(current_pointer && num < random_index) {
-    //printf("num %d: %s\n", num, current_pointer -> artist);
+  int num = 0;
+  printf("num: %d\n", random_index);
+  while(current_pointer != NULL && num < random_index) {
     current_pointer = current_pointer -> next;
     num++;
   }
@@ -140,7 +140,7 @@ struct song_node * remove_node(struct song_node *node_pointer, char * song, char
   struct song_node *current_pointer = node_pointer;
   struct song_node *previous_pointer; //points to the node previous to the curr ptr
   previous_pointer = NULL;
-  while (current_pointer){
+  while (current_pointer != NULL){
     // search for a matching node
     if(strcmp(current_pointer -> song, song) == 0 && strcmp(current_pointer -> artist, artist) == 0) {
       // if the first node is being removed
@@ -162,7 +162,7 @@ struct song_node * remove_node(struct song_node *node_pointer, char * song, char
     previous_pointer = current_pointer;
     current_pointer = current_pointer -> next;
   }
-  return NULL;
+  return node_pointer;
 }
 
 // print the entire list

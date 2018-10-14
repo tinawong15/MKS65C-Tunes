@@ -2,12 +2,10 @@
 # include "library.h"
 
 int main(){
-  //set up sample notes for testing
   srand( time(NULL) ); //seeding random number generator once in the program
   struct song_node *start_pointer = NULL; //1 * size of node
   struct song_node * library[27];
   int index;
-  char letter = 'a';
   for (index = 0; index < 27; index++){
     library[index] = malloc(sizeof(struct song_node));
     library[index] -> next = NULL;
@@ -96,36 +94,54 @@ int main(){
   add_node(library, "Chickamauga", "Bierce");
   add_node(library, "Coup de Grace", "Bierce");
   add_node(library, "The Devil's Dictionary", "Bierce");
+  char letter = 'a';
+  for (i = 0; i < 27; i++){
+    //char draft_name[16] =
+    add_node(library, "Self-Reliance", &letter);
+    add_node(library, "Anarchist Manifesto", &letter);
+    add_node(library, "The Yellow Wallpaper", &letter);
+    add_node(library, "Raunak is spelled Roanoke", &letter);
+    add_node(library, "Tina's secret mixtape", &letter);
+    letter++;
+  }
   printf("Printing library after adding nodes:\n");
   print_library(library);
 
-  printf("Printing list of one artist (one valid and one invalid):\n");
-  printf("Printing Emerson:");
+  printf("\nPrinting list of one artist (one valid and one invalid):\n");
+  printf("Printing Emerson: ");
   print_artist(library, "Emerson"); //valid
-  printf("Printing oopty-scoop:");
+  printf("Printing Bierce: ");
+  print_artist(library, "Bierce"); //valid
+  printf("Printing oopty-scoop: ");
   print_artist(library, "oopty-scoop"); //invalid
-  printf("Printing '':");
+  printf("Printing '': ");
   print_artist(library, ""); //invalid
 
-  printf("Printing single lists: \n");
+  printf("\nPrinting single lists: \n");
   print_letter_list(library, 'b');
   print_letter_list(library, 'f');
   print_letter_list(library, 's');
 
-  printf("Searching for song: \n");
+  printf("\nSearching for song: \n");
   printf("Attempting to find Self-Reliance (title returned): %s\n", search_song(library, "Self-Reliance", "Emerson") -> song); // valid
   printf("Attempting to find Grave of the Fireflies (title returned): %s\n", search_song(library, "Grave of the Fireflies", "Bierce") -> song); // invalid
   printf("Attempting to find \"\" (title returned): %s\n", search_song(library, "", "") -> song); // invalid
 
-  printf("Searching for artists: \n");
+  printf("\nSearching for artists: \n");
   printf("Attempting to find Bierce (title returned): %s\n", search_artist(library, "Bierce") -> song); // valid
   printf("Attempting to find K (title returned): %s\n", search_artist(library, "K") -> song); // invalid
   printf("Attempting to find \"\" (title returned): %s\n", search_artist(library, "") -> song); // invalid
 
-  printf("Testing delete_song: \n");
+  printf("\nTesting delete_song: \n");
   delete_song(library, "Pride and Prejudice", "Austen");
   delete_song(library, "Coup de Grace", "Bierce");
+  delete_song(library, "Grave of the Fireflies", "");
+  delete_song(library, "Soup de Grace", "Bierce");
+  delete_song(library, "", "");
   printf("Printing library after removing songs:\n");
   print_library(library);
+
+  printf("\nShuffling songs: \n");
+  shuffle_print(library, 6);
   return 0;
 }

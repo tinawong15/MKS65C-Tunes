@@ -22,7 +22,7 @@ void print_artist(struct song_node **library, char * artist);
 void print_library(struct song_node **library);
 
 // Shuffle - print out a series of randomly chosen songs.
-void shuffle_print(struct song_node **library);
+void shuffle_print(struct song_node **library, int times);
 
 // Delete a song
 struct song_node ** delete_song(struct song_node **library, char * song, char * artist);

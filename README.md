@@ -14,9 +14,13 @@
 
 ### Current Bugs:
 - free_list is causing memory leaks according to valgrind
-- remove_node needs to handle extreme cases
 
 ### Changelog:
+- raunakC and tinaW 2018-10-14 16:20 -
+  - Modified formatting of main.c
+  - Fixed find_index bug
+  - Fixed remove_node bug
+
 - tinaW 2018-10-14 13:30 - 13:50
   - Finished delete_song
   - Changed test cases
