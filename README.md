@@ -14,8 +14,13 @@
 
 ### Current Bugs:
 - free_list is causing memory leaks according to valgrind
+- remove_node needs to handle extreme cases
 
 ### Changelog:
+- tinaW 2018-10-14 13:30 - 13:50
+ - Finished delete_song
+ - Changed test cases
+
 - raunakC 2018-10-14 11:10 - 13:10
   - Fixed search_artist and refactored search_song
   - FIXED ADD_NODE (ONLY TOOK AN ADDITIONAL 15 MILLION YEARS)

@@ -20,9 +20,7 @@ int find_index(char * artist){
 // Add song nodes.
 struct song_node ** add_node(struct song_node **library, char * song, char * artist){
   int index = find_index(artist);
-  //printf("library[%d]: %s:%s\n", index,library[index] -> artist, library[index] -> song );
-  //printf("New node: %s %s\n", artist, song);
-  print_list(library[index]);
+  // print_list(library[index]);
   library[index] = insert_order(library[index], song, artist);
   return library;
 }
@@ -37,6 +35,13 @@ struct song_node * search_song(struct song_node **library, char * song, char * a
 struct song_node * search_artist(struct song_node **library, char * artist){
   int index = find_index(artist);
   return find_song(library[index], artist);
+}
+
+// Delete a song
+struct song_node ** delete_song(struct song_node **library, char * song, char * artist){
+  int index = find_index(artist);
+  library[index] = remove_node(library[index], song, artist);
+  return library;
 }
 
 // Print out the entire library.
@@ -71,14 +76,8 @@ void print_letter_list(struct song_node **library, char letter){
   print_list(library[index]);
 }
 
-
 // // Shuffle - print out a series of randomly chosen songs.
 // void shuffle_print(struct song_node **library){
-//
-// }
-//
-// // Delete a song
-// struct song_node ** delete_song(struct song_node **library){
 //
 // }
 //

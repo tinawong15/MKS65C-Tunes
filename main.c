@@ -87,7 +87,7 @@ int main(){
   // print_list(start_pointer);
   printf("============= MUSIC LIBRARY TESTS =============\n");
   printf("Testing add_node:\n");
-  add_node(library, "Self-Reliance", "Amerson");
+  add_node(library, "Pride and Prejudice", "Austen");
   add_node(library, "Self-Reliance", "Emerson");
   add_node(library, "One Day in the Life of Ivan Denisovich", "Solzhenitsyn");
   add_node(library, "Republic", "Plato");
@@ -96,7 +96,6 @@ int main(){
   add_node(library, "Chickamauga", "Bierce");
   add_node(library, "Coup de Grace", "Bierce");
   add_node(library, "The Devil's Dictionary", "Bierce");
-  add_node(library, "AA", "Bierce");
   printf("Printing library after adding nodes:\n");
   print_library(library);
 
@@ -119,9 +118,14 @@ int main(){
   printf("Attempting to find \"\" (title returned): %s\n", search_song(library, "", "") -> song); // invalid
 
   printf("Searching for artists: \n");
-  printf("Attempting to find Solzhenitsyn (title returned): %s\n", search_artist(library, "Solzhenitsyn") -> song); // valid
+  printf("Attempting to find Bierce (title returned): %s\n", search_artist(library, "Bierce") -> song); // valid
   printf("Attempting to find K (title returned): %s\n", search_artist(library, "K") -> song); // invalid
   printf("Attempting to find \"\" (title returned): %s\n", search_artist(library, "") -> song); // invalid
 
+  printf("Testing delete_song: \n");
+  delete_song(library, "Pride and Prejudice", "Austen");
+  delete_song(library, "Coup de Grace", "Bierce");
+  printf("Printing library after removing songs:\n");
+  print_library(library);
   return 0;
 }

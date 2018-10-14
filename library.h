@@ -25,7 +25,7 @@ void print_library(struct song_node **library);
 void shuffle_print(struct song_node **library);
 
 // Delete a song
-struct song_node ** delete_song(struct song_node **library);
+struct song_node ** delete_song(struct song_node **library, char * song, char * artist);
 
 // Clear the library.
 struct song_node ** clear_library(struct song_node **library);
