@@ -19,19 +19,22 @@ struct song_node * insert_order(struct song_node *node_pointer, char * song, cha
   new_pointer -> next = NULL;
 
   struct song_node *current_pointer = node_pointer;   // create an alias to the list
+  // printf("node ptr!: %s\n", node_pointer -> artist);
   struct song_node *previous_pointer; //points to the node previous to the curr ptr
-  previous_pointer -> next = current_pointer -> next;
   // if node_pointer is NULL, then just return new_pointer
   if (node_pointer == NULL){
     return new_pointer;
   }
+  previous_pointer = current_pointer;
   // average case
   while (current_pointer -> next){
     // compare artists first
+    //printf("Difference b/t %s and %s: %d\n", new_pointer -> artist, current_pointer -> artist, strcmp(new_pointer -> artist, current_pointer -> artist));
+    //printf("Current ptr: %s\n", current_pointer -> artist);
     if(strcmp(new_pointer -> artist, current_pointer -> artist) < 0){
       //printf("\n\nPrinting strcmp of %s and %s: %d\n", new_pointer -> artist, current_pointer -> artist, strcmp(new_pointer->artist, current_pointer->artist));
       // if the artist is alphabetically first
-      if (previous_pointer -> next == current_pointer -> next){
+      if (previous_pointer == current_pointer){
         new_pointer -> next = current_pointer;
         return new_pointer;
       }
@@ -41,7 +44,13 @@ struct song_node * insert_order(struct song_node *node_pointer, char * song, cha
     }
     // if artists match, compare the song titles
     else if(strcmp(new_pointer -> artist, current_pointer -> artist) == 0){
+      //printf("Difference b/t %s and %s: %d\n", new_pointer -> song, current_pointer -> song, strcmp(new_pointer -> song, current_pointer -> song));
       if(strcmp(new_pointer -> song, current_pointer -> song) < 0){
+        //printf("\nNew Artist: %s New Song: %s Current Artist: %s Current Song: %s Previous Artist: %s Previous Song: %s\n\n", new_pointer -> artist, new_pointer -> song, current_pointer -> artist, current_pointer -> song, previous_pointer -> artist, previous_pointer -> song);
+        if (previous_pointer == current_pointer){
+          new_pointer -> next = current_pointer;
+          return new_pointer;
+        }
         previous_pointer -> next = new_pointer;
         new_pointer -> next = current_pointer;
         break;
@@ -49,6 +58,7 @@ struct song_node * insert_order(struct song_node *node_pointer, char * song, cha
     }
     previous_pointer = current_pointer;
     current_pointer = current_pointer -> next;
+    //printf("\nNew Artist: %s New Song: %s Current Artist: %s Current Song: %s Previous Artist: %s Previous Song: %s\n\n", new_pointer -> artist, new_pointer -> song, current_pointer -> artist, current_pointer -> song, previous_pointer -> artist, previous_pointer -> song);
   }
   // account for when current pointer is alphabetically second last
   if(strcmp(new_pointer -> artist, current_pointer -> artist) < 0){
@@ -57,6 +67,7 @@ struct song_node * insert_order(struct song_node *node_pointer, char * song, cha
   }
   else if(strcmp(new_pointer -> artist, current_pointer -> artist) == 0){
     if(strcmp(new_pointer -> song, current_pointer -> song) < 0){
+      //printf("\nNew Artist: %s New Song: %s Current Artist: %s Current Song: %s Previous Artist: %s Previous Song: %s\n\n", new_pointer -> artist, new_pointer -> song, current_pointer -> artist, current_pointer -> song, previous_pointer -> artist, previous_pointer -> song);
       previous_pointer -> next = new_pointer;
       new_pointer -> next = current_pointer;
     }
@@ -66,6 +77,7 @@ struct song_node * insert_order(struct song_node *node_pointer, char * song, cha
     current_pointer -> next = new_pointer;
   }
   // you're returning the original list with the new node appended
+  //printf("\nNew Artist: %s New Song: %s Current Artist: %s Current Song: %s Previous Artist: %s Previous Song: %s\n\n", new_pointer -> artist, new_pointer -> song, current_pointer -> artist, current_pointer -> song, previous_pointer -> artist, previous_pointer -> song);
   return node_pointer;
 }
 

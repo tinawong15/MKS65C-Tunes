@@ -1,5 +1,5 @@
 # MKS65C-Tunes
-## Tina Wong and Raunak Chowdhury
+## Raunak Chowdhury and Tina Wong
 
 ### To-Do:
 - [X] list.h
@@ -7,14 +7,26 @@
 - [X] makefile
 - [X] insert_order in list.c
 - [X] remove_node in list.c
+- [ ] add_node in library.c
 - [ ] list.c
 - [ ] library.c
 - [ ] Build Testing Suite in main.c
 
 ### Current Bugs:
 - free_list is causing memory leaks according to valgrind
+- add_node has many issues (a temporary one is currently used to test other fxns)
+- search_artist is giving seg faults
 
 ### Changelog:
+- tinaW 2018-10-14 09:15 - 10:25
+  - Fixed search_song
+  - Commented out broken code to push
+  - Fixed partner text files
+
+- raunakC and tinaW 2018-10-13 21:30 - 01:30
+  - Took 20 million years on add_node
+  - Collaborated on library.c
+
 - tinaW 2018-10-13 09:30 - 10:30
   - Fixed remove_node
 
