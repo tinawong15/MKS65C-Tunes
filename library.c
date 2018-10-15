@@ -110,7 +110,11 @@ void print_letter_list(struct song_node **library, char letter){
   }
 }
 
-// // Clear the library.
-// struct song_node ** clear_library(struct song_node **library){
-//
-// }
+// Clear the library.
+struct song_node ** clear_library(struct song_node **library){
+  int index;
+  for (index = 0; index < 27; index++){
+    library[index] = free_list(library[index]);
+  }
+  return library;
+}

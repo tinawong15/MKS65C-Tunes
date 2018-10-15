@@ -24,7 +24,7 @@ struct song_node * insert_order(struct song_node *node_pointer, char * song, cha
   }
 
   struct song_node *current_pointer = node_pointer;   // create an alias to the list
-  struct song_node *previous_pointer; //points to the node previous to the curr ptr
+  struct song_node *previous_pointer = NULL; //points to the node previous to the curr ptr
   previous_pointer = current_pointer;
   // average case
   while (current_pointer -> next != NULL){
@@ -176,17 +176,14 @@ void print_list(struct song_node *node_pointer) {
   printf("END \n");
 }
 
-
-
-// SHELVING FREE BECAUSE VALGRIND IS BUGGING OUT
-// // free the entire list
-// struct song_node * free_list(struct song_node *node_pointer){
-//   struct node *current_pointer = node_pointer;
-//   struct node *placeholder = node_pointer;
-//   while (current_pointer){
-//     current_pointer = current_pointer -> next;
-//     free(placeholder);
-//     placeholder = current_pointer;
-//   }
-//   return current_pointer;
-// }
+// free the entire list
+struct song_node * free_list(struct song_node *node_pointer){
+  struct song_node *current_pointer = node_pointer;
+  struct song_node *placeholder = node_pointer;
+  while (current_pointer){
+    current_pointer = current_pointer -> next;
+    free(placeholder);
+    placeholder = current_pointer;
+  }
+  return current_pointer;
+}

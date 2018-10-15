@@ -8,15 +8,17 @@
 - [X] insert_order in list.c
 - [X] remove_node in list.c
 - [X] add_node in library.c
-- [ ] list.c
-- [ ] library.c
-- [ ] Build Testing Suite in main.c
+- [X] list.c
+- [X] library.c
+- [X] Build Testing Suite in main.c
 
 ### Current Bugs:
-- free_list is causing memory leaks according to valgrind
-- empty nodes due to initialization are causing problems with shuffle_print (shuffle_print works however)
 
 ### Changelog:
+- raunakC and tinaW 2018-10-15 3:10 - 3:30
+  - initialized library correctly, which fixed the memory leaks
+  - Finished free_list and clear_library
+
 - raunakC and tinaW 2018-10-14 16:20 - 18:05
   - Modified formatting of main.c
   - Fixed find_index bug

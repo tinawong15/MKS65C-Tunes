@@ -9,6 +9,8 @@ int main(){
   for (index = 0; index < 27; index++){
     library[index] = malloc(sizeof(struct song_node));
     library[index] -> next = NULL;
+    library[index] -> song[0] = 0;
+    library[index] -> artist[0] = 0;
     // library[index] -> song[0] = letter;
     // letter++;
   }
@@ -80,9 +82,10 @@ int main(){
   printf("Removing Woolf's To the Lighthouse...\n"); // end case
   print_list(start_pointer);
 
-  // printf("Clearing the list:\n");
-  // start_pointer = free_list(start_pointer);
-  // print_list(start_pointer);
+  printf("Clearing the list:\n");
+  start_pointer = free_list(start_pointer);
+  print_list(start_pointer);
+
   printf("============= MUSIC LIBRARY TESTS =============\n");
   printf("Testing add_node:\n");
   add_node(library, "Pride and Prejudice", "Austen");
@@ -133,5 +136,9 @@ int main(){
 
   printf("\nShuffling songs: \n");
   shuffle_print(library, 6);
+
+  printf("\nClear the Library: \n");
+  clear_library(library);
+  print_library(library);
   return 0;
 }
