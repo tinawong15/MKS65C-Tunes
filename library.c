@@ -68,7 +68,14 @@ void shuffle_print(struct song_node **library, int times){
       index = rand() % 27;
     }
     chosen_song = random_element(library[index]);
-    printf("Song #%d: %s by %s\n ", song_amount+1, chosen_song -> song, chosen_song -> artist);
+    // if chosen_song returns a null song and artist, keep looping until you find a song and artist — up to a certain point
+    int counter = 0;
+    while (!chosen_song -> song[0] && !chosen_song -> artist[0] && counter != 5000000){
+      index = rand() % 27;
+      chosen_song = random_element(library[index]);
+      counter++;
+    }
+    printf("Song #%d: %s by %s\n", song_amount+1, chosen_song -> song, chosen_song -> artist);
   }
 }
 

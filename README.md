@@ -15,8 +15,11 @@
 ### Current Bugs:
 
 ### Changelog:
+- raunakC 2018-10-16 5:55 - 6:00
+  - Ensured that shuffle_print will always print songs and artists -- up to a certain point
+
 - raunakC and tinaW 2018-10-15 3:10 - 3:30
-  - initialized library correctly, which fixed the memory leaks
+  - Initialized library correctly, which fixed the memory leaks
   - Finished free_list and clear_library
 
 - raunakC and tinaW 2018-10-14 16:20 - 18:05

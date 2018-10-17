@@ -127,7 +127,7 @@ struct song_node * random_element(struct song_node *node_pointer) {
   struct song_node *current_pointer = node_pointer;
   int random_index = rand() % length(node_pointer);
   int num = 0;
-  printf("num: %d\n", random_index);
+  //printf("num: %d\n", random_index);
   while(current_pointer != NULL && num < random_index) {
     current_pointer = current_pointer -> next;
     num++;
